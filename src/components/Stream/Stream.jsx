@@ -29,7 +29,7 @@ class Stream extends Component {
     }
     render() {
         return (
-            <div className='container streamClass'>
+            <div className='streamClass'>
                 <div className="form" onSubmit={this.Submit}>
                     <div className="form-group">
                         <label htmlFor="selectClass" className='chooseClass'><strong>Class</strong></label>
