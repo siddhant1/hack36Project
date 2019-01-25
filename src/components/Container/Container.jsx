@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import Welcome from "../Welcome";
+import TopicContainer from "../Topic/TopicContainer";
 
 class Container extends Component {
   render() {
     return (
       <div>
-        <Welcome />
+        <TopicContainer />
       </div>
     );
   }
