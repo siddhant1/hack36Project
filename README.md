@@ -6,6 +6,9 @@ The app is WIP and is a flash card app for undergrduate and school students
 
 THe app can be completely controlled by voice and is accessible for blind people as well.
 
+# Theme of the app
+Education 
+
 # Problem 
 Flashify was made to make the process of learning more interesting , easy , quick and most important of all accessible.
 Flashify works on the principal of active recall. Active Recall is one of the best methods to learn and rank higher than most orthodox learning methods like re-reading and making notes.Also blind people are not able to make use of such brilliant learning techniques and Flashify solves this problem too.
@@ -23,6 +26,14 @@ Due to lack of fast internet connection we had to use these newer API's other th
 The application is built using React on the frontend and Node.js (Express) at the backend and is pretty fast and reusable.
 
 ## Screenshots
+https://imgur.com/a/usoD1
+
+## Team
+Siddhant :- http://siddhantm.me
+
+Shakti
+
+Alok
 
 ## Thanks
 Suggestions are improvements are always open
