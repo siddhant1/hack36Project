@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import Subject from "./subject";
 import posed from "react-pose";
+import "./subject.css";
+import Speech from "react-speech";
+import ButtonGroup from "antd/lib/button/button-group";
 
+var msg = new SpeechSynthesisUtterance();
 class SubjectContainer extends Component {
   constructor(props) {
     super(props);
@@ -11,15 +15,47 @@ class SubjectContainer extends Component {
     };
   }
 
+  prepareText = () => {
+    var text = "Please say one of the following options ";
+    this.state.subject.forEach((s, index) => {
+      text += `Option ${index + 1} for ${s.toLowerCase()} `;
+    });
+    return text;
+  };
+
+  componentDidMount() {
+    const speak = (text = "No Voice Present") => {
+      console.log(this.props);
+      const msg = this.props.msg;
+      msg.text = text;
+      window.speechSynthesis.speak(msg);
+    };
+    speak(this.prepareText());
+  }
+
+  componentWillUnmount() {
+    msg = null;
+  }
   render() {
     return (
-      <div>
-        <ul className="list-group">
-          {this.state.subject.map((subject, index) => {
-            return <Subject subject={subject} key={index} className="box" />;
-          })}
-        </ul>
-      </div>
+      <>
+        {/* <Speech
+          text={this.prepareText()}
+          voice="Google UK English Male"
+          lang="en-US"
+          // stop={true}
+          // pause={true}
+          // resume={true}
+        />
+        <audio controls autoPlay src="http://localhost:9999/voice/majak" /> */}
+        <div>
+          <ul className="list-group">
+            {this.state.subject.map((subject, index) => {
+              return <Subject subject={subject} key={index} className="box" />;
+            })}
+          </ul>
+        </div>
+      </>
     );
   }
 }

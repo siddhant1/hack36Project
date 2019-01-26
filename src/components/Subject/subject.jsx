@@ -22,7 +22,7 @@ class Subject extends Component {
     return (
     //   <div>
         <Box className="box">
-          <li className="list-group-item d-flex justify-content-between align-items-center">
+          <li className="list-group-item d-flex justify-content-between align-items-center subject-list">
             {this.props.subject}
             <span className="badge  badge-pill">
               <i className="fas fa-angle-double-right" />
