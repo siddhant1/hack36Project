@@ -1,0 +1,9 @@
+* {
+    font-size: xx-large
+}
+
+@media (min-width 768px) {
+    * {
+        font-size: large
+    }
+}

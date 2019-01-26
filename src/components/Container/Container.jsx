@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import Welcome from "../Welcome";
 // import { Select } from "antd";
 import Stream from '../Stream/Stream';
@@ -10,6 +11,7 @@ class Container extends Component {
   render() {
     return (
       <div>
+
         <Header/>
           <div className="mainContent container">
             <Switch >
@@ -17,6 +19,7 @@ class Container extends Component {
                 <Route path='/content' exact component={Content}/>
             </Switch>
           </div>
+
       </div>
     );
   }
