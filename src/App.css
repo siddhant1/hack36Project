@@ -1,13 +1,5 @@
 @import "../node_modules/antd/dist/antd.css";
-.AppContainer{
-    background-image: url("https://i.ytimg.com/vi/36cJkAAAAkQ/maxresdefault.jpg");
-
-  /* Full height */
-  height: 100%; 
-
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+/* .AppContainer{
     
-}
+    
+} */

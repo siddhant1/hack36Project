@@ -1,12 +1,10 @@
-.jumbotron{
-    background-color: #3B85E2;
-}
+
 
 
 @import url('https://fonts.googleapis.com/css?family=Barlow');
 
-body {
-	background: #310404 url(https://i.ytimg.com/vi/wOvQAhzWCrM/maxresdefault.jpg) no-repeat center center fixed; 
+.sp-container {
+	background: #310404 url('https://i.ytimg.com/vi/wOvQAhzWCrM/maxresdefault.jpg') no-repeat center center fixed; 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -34,7 +32,7 @@ h1.main, p.demos {
 	width: 100%;
 	height: 100%;
 	z-index: 0;
-	background: -webkit-radial-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3) 35%, rgba(0, 0, 0, 0.7));
+	background: -webkit-radial-gradient(rgba(230, 12, 12, 0.1), rgba(212, 7, 7, 0.3) 35%, rgba(0, 0, 0, 0.7));
 	background: -moz-radial-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3) 35%, rgba(0, 0, 0, 0.7));
 	background: -ms-radial-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3) 35%, rgba(0, 0, 0, 0.7));
 	background: radial-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3) 35%, rgba(0, 0, 0, 0.7));
@@ -56,7 +54,7 @@ h1.main, p.demos {
 	font-size: 150px;
 	width: 100%;
 	text-align: center;
-	color: transparent;
+	color: burlywood;
 	-webkit-animation: blurFadeInOut 4s ease-in backwards;
 	-moz-animation: blurFadeInOut 4s ease-in backwards;
 	-ms-animation: blurFadeInOut 4s ease-in backwards;

@@ -7,8 +7,7 @@ class Welcome extends Component {
       <div className="sp-container">
         <div className="sp-content">
           <div className="sp-globe" />
-
-          <h2 className="frame-2">FLASHIFY</h2>
+            <h2 className="frame-2">FLASHIFY</h2>
         </div>
       </div>
     );
