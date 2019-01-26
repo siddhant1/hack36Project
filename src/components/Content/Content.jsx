@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 import './Content.css';
 class Content extends Component {    
     render() {
@@ -20,7 +20,7 @@ class Content extends Component {
                     <div class="card-body row">
                         <div className="col-md-11">
                             <h5 class="card-title">Take Test</h5>
-                            <p class="card-text">Attending Test will make you understanding more clear...</p>
+                            <p class="card-text">Attending Test will make your understanding more clear...</p>
                         </div>
                         <div className="col-md-1 contentArrow">
                             <i className='fa fa-angle-double-right '></i>
