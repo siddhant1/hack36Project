@@ -1,0 +1,16 @@
+.chooseClass{
+    font-size: 30px;
+}
+.chooseStream{
+    font-size: 30px;
+}
+.OptionClass{
+    border-radius: 40px!important; 
+}
+.streamClass{
+    margin: 4% auto;
+}
+.proceedBtn{
+    border-radius: 30%!important;
+    width: 30%;
+}
