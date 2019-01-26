@@ -1,8 +1,12 @@
 .chooseClass{
-    font-size: 30px;
+    font-size: x-large!important;
+    size: 10px;
+    font-weight: bold;
 }
 .chooseStream{
-    font-size: 30px;
+    font-size: x-large!important;
+    size: 10px;
+    font-weight: bold;
 }
 .OptionClass{
     border-radius: 40px!important; 
@@ -14,6 +18,9 @@
     border-radius: 30%!important;
     width: 30%;
 }
+.selectStream{
+    size: x-small;
+}  
 .hide{
     display: none;
 }

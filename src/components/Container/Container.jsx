@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 
 import Welcome from "../Welcome";
-// import { Select } from "antd";
 import Stream from '../Stream/Stream';
 import Header from "../Header/Header";
 import {Switch,Route} from 'react-router-dom';
 import Content from "../Content/Content";
 import TopicContainer from '../Topic/TopicContainer';
-import Subject from '../Subject/subjectContainer';
 import SubjectContainer from "../Subject/subjectContainer";
 class Container extends Component {
   render() {

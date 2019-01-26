@@ -23,24 +23,25 @@ class SubjectContainer extends Component {
   };
 
   componentDidMount() {
-    const button = document.querySelector(".rs-play");
-    button.classList.add('hidden')
-    setTimeout(() => {
-      button.click();
-    }, 1000);
+    // const button = document.querySelector(".rs-play");
+    // button.classList.add('hidden')
+    // setTimeout(() => {
+    //   button.click();
+    // }, 1000);
   }
   render() {
     return (
       <>
-        <Speech
+        {/* <Speech
           text={this.prepareText()}
           voice="Google UK English Male"
           lang="en-US"
           // stop={true}
           // pause={true}
           // resume={true}
-        />
-        <div>
+        /> */}
+        <audio controls autoPlay src="http://localhost:9999/voice/majak" />
+        <div  >
           <ul className="list-group">
             {this.state.subject.map((subject, index) => {
               return <Subject subject={subject} key={index} className="box" />;

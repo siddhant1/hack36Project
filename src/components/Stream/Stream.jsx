@@ -64,7 +64,7 @@ class Stream extends Component {
                         </div>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="selectClass" className='chooseClass'><strong>Class</strong></label>
+                        <label htmlFor="selectClass" className='chooseClass'>Class</label>
                         <select name="selectedClass" defaultValue='Select Class' className='form-control col-md-12' id="selectClass" onChange={this.handleChange}>
                             <option disabled={true}>Select Class</option> 
                             { this.state.classes && this.state.classes.map((classe,index)=>
@@ -72,8 +72,8 @@ class Stream extends Component {
                                 )}
                         </select>
                         <br/>
-                        <label htmlFor="selectStream" className='chooseStream'><strong>Stream</strong></label>
-                        <select name="selectedStream" defaultValue='Select Stream' className='form-control col-md-12' id="selectStream" onChange={this.handleChange}>
+                        <label htmlFor="selectStream" className='chooseStream'>Stream</label>
+                        <select name="selectedStream" defaultValue='Select Stream' className='form-control col-md-12 selectStream' id="selectStream" onChange={this.handleChange}>
                             <option  disabled={true}>Select Stream</option> 
                                 { this.state.streams && this.state.streams.map((stream,index)=>
                                         <option value={stream} key={index} className='optionClass'>{stream}</option>
