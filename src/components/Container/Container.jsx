@@ -15,6 +15,7 @@ class Container extends Component {
         <Header/>
           <div className="mainContent container">
             <Switch >
+                <Route path='/welcome' exact component={Welcome}/>
                 <Route path='/stream' exact component={Stream}/>
                 <Route path='/content' exact component={Content}/>
                 <Route path='/topic' exact component={TopicContainer}/>
