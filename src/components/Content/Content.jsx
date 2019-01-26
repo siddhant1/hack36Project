@@ -20,6 +20,17 @@ const Box = posed.div({
   }
 });
 class Content extends Component {
+  componentDidMount() {
+    const ut = new SpeechSynthesisUtterance(`
+      Select one of the following
+      Option 1 for Understanding Concepts
+      Option 2 for Taking Test
+      `);
+    console.log(ut);
+    ut.rate = 0.5;
+    speechSynthesis.speak(ut);
+  }
+
   render() {
     return (
       <React.Fragment>
