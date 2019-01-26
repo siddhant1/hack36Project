@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Subject from "./subject";
 import posed from "react-pose";
 import "./subject.css";
-import Speech from "react-speech";
 import ButtonGroup from "antd/lib/button/button-group";
 
 var msg = new SpeechSynthesisUtterance();

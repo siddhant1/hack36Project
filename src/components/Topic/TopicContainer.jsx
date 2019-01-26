@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import Topic from "./Topic";
-import { List } from "antd";
-import Speech from "react-speech";
 
 class TopicContainer extends Component {
   state = {
