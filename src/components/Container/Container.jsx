@@ -7,6 +7,9 @@ import { Switch, Route } from "react-router-dom";
 import Content from "../Content/Content";
 import TopicContainer from "../Topic/TopicContainer";
 import SubjectContainer from "../Subject/subjectContainer";
+<<<<<<< HEAD
+import FlashCard from "../FlashCard/FlashCard";
+=======
 import posed, { PoseGroup } from "react-pose";
 
 const RoutesContainer = posed.div({
@@ -14,6 +17,7 @@ const RoutesContainer = posed.div({
   exit: { opacity: 0 }
 });
 
+>>>>>>> 304b56b65d140d3a6afe1909c0f833b259f901f2
 class Container extends Component {
   constructor() {
     super();
@@ -25,6 +29,20 @@ class Container extends Component {
   render() {
     return (
       <div>
+<<<<<<< HEAD
+
+        <Header/>
+          <div className="mainContent container">
+            <Switch >
+                <Route path='/stream' exact component={Stream}/>
+                <Route path='/content' exact component={Content}/>
+                <Route path='/topic' exact component={TopicContainer}/>
+                <Route path='/subject' exact component={SubjectContainer}/>
+                <Route path='/flashy' exact component={FlashCard}/>
+            </Switch>
+          </div>
+
+=======
         <Header />
         <div className="mainContent container">
           {/* <PoseGroup> */}
@@ -46,6 +64,7 @@ class Container extends Component {
           {/* </RoutesContainer> */}
           {/* </PoseGroup> */}
         </div>
+>>>>>>> 304b56b65d140d3a6afe1909c0f833b259f901f2
       </div>
     );
   }
