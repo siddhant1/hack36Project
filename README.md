@@ -26,7 +26,7 @@ Due to lack of fast internet connection we had to use these newer API's other th
 The application is built using React on the frontend and Node.js (Express) at the backend and is pretty fast and reusable.
 
 ## Screenshots
-https://imgur.com/a/usoD1
+https://imgur.com/a/usoD1qZ
 
 ## Team
 Siddhant :- http://siddhantm.me
