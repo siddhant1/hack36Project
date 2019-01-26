@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Stream.css';
+import Dictaphone from '../VoiceRecognize/VoiceRecognize';
 
 class Stream extends Component {
     constructor(props){
@@ -19,6 +20,9 @@ class Stream extends Component {
             })
         });
     }
+    componentDidMount(){
+        document.querySelector('#modal').click();
+    }
     handleChange=(event)=>{
         event.preventDefault();
         this.setState({
@@ -31,6 +35,34 @@ class Stream extends Component {
         return (
             <div className='container streamClass'>
                 <div className="form" onSubmit={this.Submit}>
+                    <div className="row">
+                        <div className="col-md-8"></div>
+                        <div className="col-md-4">
+                        <button type="button" className="btn btn-primary hide" id='modal' data-toggle="modal" data-target="#exampleModal">
+                        Launch demo modal
+                        </button>
+
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <Dictaphone/>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                <button type="button" class="btn btn-primary" data-dismiss>YES</button>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        </div>
+                    </div>
                     <div className="form-group">
                         <label htmlFor="selectClass" className='chooseClass'>Class</label>
                         <select name="selectedClass" defaultValue='Select Class' className='form-control col-md-12' id="selectClass" onChange={this.handleChange}>

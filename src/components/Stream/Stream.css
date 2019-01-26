@@ -20,5 +20,7 @@
 }
 .selectStream{
     size: x-small;
-    
+}  
+.hide{
+    display: none;
 }
