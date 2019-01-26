@@ -29,7 +29,7 @@ class Stream extends Component {
     }
     render() {
         return (
-            <div className='streamClass'>
+            <div className='container streamClass'>
                 <div className="form" onSubmit={this.Submit}>
                     <div className="form-group">
                         <label htmlFor="selectClass" className='chooseClass'><strong>Class</strong></label>
@@ -49,7 +49,7 @@ class Stream extends Component {
                         </select>
                         <br/>
                         <br/>
-                        <center><button className='btn btn-primary col-md-2'>Procced</button></center>
+                        <center><button className='btn btn-primary'>Procced</button></center>
                     </div>  
                 </div>
             </div>
