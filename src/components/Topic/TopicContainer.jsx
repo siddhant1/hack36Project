@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Topic from "./Topic";
 import {Link} from 'react-router-dom';
+
 class TopicContainer extends Component {
   state = {
     topics: [
@@ -21,13 +22,10 @@ class TopicContainer extends Component {
   };
 
   componentDidMount() {
-    const speak = (text = "No Voice Present") => {
-      console.log(this.props);
-      const msg = this.props.msg;
-      msg.text = text;
-      window.speechSynthesis.speak(msg);
-    };
-    speak(this.prepareText());
+    const ut = new SpeechSynthesisUtterance(this.prepareText());
+    console.log(ut);
+    ut.rate = 0.5;
+    speechSynthesis.speak(ut);
   }
 
   render() {

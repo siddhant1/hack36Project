@@ -4,90 +4,163 @@ import Dictaphone from '../VoiceRecognize/VoiceRecognize';
 import { Link} from 'react-router-dom';
 
 class Stream extends Component {
-    constructor(props){
-        super(props);
-        this.initialState={
-            classes: [],
-            stream : [],
-            selectedClass :'',
-            selectedStream : ''
-        }
-    }
-    componentWillMount(){
-        this.setState(this.initialState,()=>{
-            this.setState({
-                classes : ['12th'],
-                streams : ['Science','Commerce','Arts']
-            })
-        });
-    }
-    componentDidMount(){
-        document.querySelector('#modal').click();
-    }
-    handleChange=(event)=>{
-        event.preventDefault();
-        this.setState({
-            [event.target.name] : event.target.value
-        },()=>{
-            console.log('this.state ',this.state);
-        })
-    }
-    render() {
-        return (
-            <div className='container streamClass'>
-                <div className="form" onSubmit={this.Submit}>
-                    <div className="row">
-                        <div className="col-md-8"></div>
-                        <div className="col-md-4">
-                        <button type="button" className="btn btn-primary hide" id='modal' data-toggle="modal" data-target="#exampleModal">
-                        Launch demo modal
-                        </button>
+  constructor(props) {
+    super(props);
+    this.initialState = {
+      classes: [],
+      stream: [],
+      selectedClass: "",
+      selectedStream: ""
+    };
+  }
+  componentWillMount() {
+    this.setState(this.initialState, () => {
+      this.setState({
+        classes: ["12th"],
+        streams: ["Science", "Commerce", "Arts"]
+      });
+    });
+  }
+  componentDidMount() {
+    console.log("RUnning");
+    document.querySelector("#modal").click();
+    const ut = new SpeechSynthesisUtterance(`
+      Are You Blind ?
+      Option 1 for Yes
+      Option 2 for No
+      `);
+    console.log(ut);
+    ut.rate = 0.5;
+    speechSynthesis.speak(ut);
+    setTimeout(() => speechSynthesis.cancel, 5000);
+  }
+  handleChange = event => {
+    event.preventDefault();
+    this.setState(
+      {
+        [event.target.name]: event.target.value
+      },
+      () => {
+        console.log("this.state ", this.state);
+      }
+    );
+  };
+  render() {
+    return (
+      <div className="container streamClass">
+        <div className="form" onSubmit={this.Submit}>
+          <div className="row">
+            <div className="col-md-8" />
+            <div className="col-md-4">
+              <button
+                type="button "
+                className="btn btn-primary hidden"
+                id="modal"
+                data-toggle="modal"
+                data-target="#exampleModal"
+              >
+                Launch demo modal
+              </button>
 
-                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Are you Blind?</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <Dictaphone/>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                                <button type="button" class="btn btn-primary" data-dismiss>YES</button>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                        </div>
+              <div
+                class="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        Are you Blind?
+                      </h5>
+                      <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                      >
+                        <span aria-hidden="true">&times;</span>
+                      </button>
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="selectClass" className='chooseClass'>Class</label>
-                        <select name="selectedClass" defaultValue='Select Class' className='form-control col-md-12' id="selectClass" onChange={this.handleChange}>
-                            <option disabled={true}>Select Class</option> 
-                            { this.state.classes && this.state.classes.map((classe,index)=>
-                                    <option value={classe} key={index} className='optionClass col-md-12'>{classe}</option>
-                                )}
-                        </select>
-                        <br/>
-                        <label htmlFor="selectStream" className='chooseStream'>Stream</label>
-                        <select name="selectedStream" defaultValue='Select Stream' className='form-control col-md-12 selectStream' id="selectStream" onChange={this.handleChange}>
-                            <option  disabled={true}>Select Stream</option> 
-                                { this.state.streams && this.state.streams.map((stream,index)=>
-                                        <option value={stream} key={index} className='optionClass'>{stream}</option>
-                                )}
-                        </select>
-                        <br/>
-                        <br/>
-                        <center><Link to='/subject'><button className='btn btn-primary'>Procced</button></Link></center>
-                    </div>  
+                    <div class="modal-body">
+                      <Dictaphone />
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-dismiss="modal"
+                      >
+                        No
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        data-dismiss
+                      >
+                        YES
+                      </button>
+                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
-        );
-    }
+          </div>
+          <div className="form-group">
+            <label htmlFor="selectClass" className="chooseClass">
+              Class
+            </label>
+            <select
+              name="selectedClass"
+              defaultValue="Select Class"
+              className="form-control col-md-12"
+              id="selectClass"
+              onChange={this.handleChange}
+            >
+              <option disabled={true}>Select Class</option>
+              {this.state.classes &&
+                this.state.classes.map((classe, index) => (
+                  <option
+                    value={classe}
+                    key={index}
+                    className="optionClass col-md-12"
+                  >
+                    {classe}
+                  </option>
+                ))}
+            </select>
+            <br />
+            <label htmlFor="selectStream" className="chooseStream">
+              Stream
+            </label>
+            <select
+              name="selectedStream"
+              defaultValue="Select Stream"
+              className="form-control col-md-12 selectStream"
+              id="selectStream"
+              onChange={this.handleChange}
+            >
+              <option disabled={true}>Select Stream</option>
+              {this.state.streams &&
+                this.state.streams.map((stream, index) => (
+                  <option value={stream} key={index} className="optionClass">
+                    {stream}
+                  </option>
+                ))}
+            </select>
+            <br />
+            <br />
+            <center>
+            <Link to='/subject'><button className='btn btn-primary'>Procced</button></Link>
+            </center>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default Stream;
