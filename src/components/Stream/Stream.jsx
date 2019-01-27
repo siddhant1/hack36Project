@@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import "./Stream.css";
-import Dictaphone from "../VoiceRecognize/VoiceRecognize";
+import React, { Component } from 'react';
+import './Stream.css';
+import Dictaphone from '../VoiceRecognize/VoiceRecognize';
+import { Link} from 'react-router-dom';
 
 class Stream extends Component {
   constructor(props) {
@@ -9,7 +10,8 @@ class Stream extends Component {
       classes: [],
       stream: [],
       selectedClass: "",
-      selectedStream: ""
+      selectedStream: "",
+      isBlind : 0
     };
   }
   componentWillMount() {
@@ -23,15 +25,8 @@ class Stream extends Component {
   componentDidMount() {
     console.log("RUnning");
     document.querySelector("#modal").click();
-    const ut = new SpeechSynthesisUtterance(`
-      Are You Blind ?
-      Option 1 for Yes
-      Option 2 for No
-      `);
-    console.log(ut);
-    ut.rate = 0.5;
-    speechSynthesis.speak(ut);
-    setTimeout(() => speechSynthesis.cancel, 5000);
+    
+    // setTimeout(() => speechSynthesis.cancel, 5000);
   }
   handleChange = event => {
     event.preventDefault();
@@ -44,6 +39,13 @@ class Stream extends Component {
       }
     );
   };
+  Blindfunction=(answer)=>{
+        this.setState({
+            isBlind : answer
+        },()=>{
+            console.log(this.state);
+        })
+  }
   render() {
     return (
       <div className="container streamClass">
@@ -85,20 +87,46 @@ class Stream extends Component {
                       </button>
                     </div>
                     <div class="modal-body">
-                      <Dictaphone />
+                      <Dictaphone isBlind={()=>this.Blindfunction()}/>
                     </div>
                     <div class="modal-footer">
                       <button
                         type="button"
                         class="btn btn-secondary"
                         data-dismiss="modal"
+                        name='isBlind'
+                        onClick={()=>{
+
+                            this.Blindfunction(0)
+                            }}
                       >
                         No
                       </button>
                       <button
                         type="button"
                         class="btn btn-primary"
-                        data-dismiss
+                        data-dismiss='modal'
+                        name='isBlind'
+                        onClick={()=>{
+                            
+                            const ut = new SpeechSynthesisUtterance(`
+                            Select Class 
+                            Option 1 for 12
+                             `);
+                            ut.rate = 0.5;
+                            console.log('HERE IN UT ')
+                            speechSynthesis.speak(ut)
+                            ut.onend  =  () =>{
+                            const ut1 = new SpeechSynthesisUtterance(`
+                            Select Stream 
+                            Option 1 for Science
+                            Option 2 for Maths
+                             `);
+                            ut1.rate = 0.5;
+                            speechSynthesis.speak(ut1);
+                            }
+                            this.Blindfunction(1)
+                            }}
                       >
                         YES
                       </button>
@@ -153,7 +181,7 @@ class Stream extends Component {
             <br />
             <br />
             <center>
-              <button className="btn btn-primary">Procced</button>
+            <Link to='/subject'><button className='btn btn-primary'>Procced</button></Link>
             </center>
           </div>
         </div>

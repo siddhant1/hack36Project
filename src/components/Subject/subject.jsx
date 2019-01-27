@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import posed from "react-pose";
+import {Link} from 'react-router-dom';
 const Box = posed.div({
   hoverable: true,
 //   pressable: true,
@@ -20,16 +21,19 @@ const Box = posed.div({
 class Subject extends Component {
   render() {
     return (
-    //   <div>
-        <Box className="box">
+      <div>
+        {/* // <Box className="box"> */}
+        <Link to='/topic'>
           <li className="list-group-item d-flex justify-content-between align-items-center subject-list">
             {this.props.subject}
-            <span className="badge  badge-pill">
-              <i className="fas fa-angle-double-right" />
-            </span>
+              <span className="badge  badge-pill">
+                <i className="fa fa-angle-double-right moveToNext" />
+              </span>
+            
           </li>
-        </Box>
-    //   </div>
+          </Link>
+    </div>
+       
     );
   }
 }

@@ -20,9 +20,20 @@ class Dictaphone extends Component {
     } = this.props);
   }
   componentDidMount() {
-    speech.startListening();
+    
     console.log("start Listening ", speech.startListening);
     console.log("stop listening ", speech.stopListening);
+    const ut = new SpeechSynthesisUtterance(`
+      Are You Blind ?
+      Option 1 for Yes
+      Option 2 for No
+      `);
+    // console.log(ut);
+    ut.rate = 0.5;
+    speechSynthesis.speak(ut);
+    ut.onend = ()=>{
+        speech.startListening()
+    }
   }
   voiceRecognizer = () => {
     console.log("voice Recognizer called");
@@ -39,8 +50,18 @@ class Dictaphone extends Component {
     }
     return (
       <div>
-        <button onClick={this.voiceRecognizer}>Reset</button>
-        <span>{transcript}</span>
+        {/* <button onClick={this.voiceRecognizer}>Reset</button> */}
+        <span onChange={()=>{
+            var myResult = transcript.split(" ");
+            var result=myResult.contains('yes');
+                if(result){
+                    this.props.isBlind(1);
+                }
+            var result1 = myResult.contains('no');
+            if(result1){
+                this.props.isBlind(0);
+            }
+        }}>{transcript}</span>
         {console.log(transcript)}
       </div>
     );

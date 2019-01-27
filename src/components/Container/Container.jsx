@@ -22,38 +22,30 @@ class Container extends Component {
     this.msg.volume = 100;
     this.msg.rate = 0.5;
     this.msg.voice = speechSynthesis.getVoices()[0];
-    this.state = {
-      isMain: false
-    };
+    this.state={
+      isMain : false,
+      isBlind : false
+    }
   }
-  componentDidMount() {
+  componentDidMount(){
     setTimeout(() => {
-      this.setState({ isMain: true });
+      this.setState({isMain : true})
     }, 4500);
   }
   render() {
     return (
       <div>
-        <React.Fragment>
-          <Header />
+          <React.Fragment><Header/>
           <div className="mainContent container">
-            <Switch>
-              <Route path="/" exact component={Stream} />
-              <Route path="/content" exact component={Content} />
-              <Route
-                path="/topic"
-                exact
-                render={() => <TopicContainer msg={this.msg} />}
-              />
-              <Route
-                path="/subject"
-                exact
-                render={() => <SubjectContainer msg={this.msg} />}
-              />
-              <Route path="/flashy" exact component={FlashCard} />
+            <Switch >
+                <Route path='/' exact component={Stream}/>
+                <Route path='/content' exact component={Content}/>
+                <Route path="/topic" exact render={() => <TopicContainer msg={this.msg} />}/>
+                <Route path="/subject" exact render={() => <SubjectContainer msg={this.msg} />}/>
+                <Route path='/flashy' exact component={FlashCard}/>
             </Switch>
           </div>
-        </React.Fragment>
+          </React.Fragment>
       </div>
     );
   }
