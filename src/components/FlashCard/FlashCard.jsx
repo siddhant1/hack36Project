@@ -414,16 +414,15 @@ class CreateCard extends React.Component {
         <div className='wrapper'>
             <div id="actionButtons">
                 <div >
-                    <button className='btn btn-primary'>Back</button>
+                    <button className='btn btn-primary '><Link to='/content'><span className='styleBackBtn'>Back</span></Link></button>
                 </div>
-                <div >
+                {/* <div >
                     <button className='btn btn-success'>Refresh</button>
-                </div>
+                </div> */}
             </div>
           <div className='content-wrapper'>
             <CardContainer/>
           </div>
-          <Link to="/topic" >TOPIC</Link>
         </div>
       );
     }

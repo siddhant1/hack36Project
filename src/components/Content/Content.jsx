@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-// import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import "./Content.css";
+
 
 import posed from "react-pose";
 const Box = posed.div({
@@ -20,54 +21,42 @@ const Box = posed.div({
   }
 });
 class Content extends Component {
+    constructor(){
+        super();
+        this.state={
+            contents : [
+                { title : 'Understanding Concept','description' : 'Understanding Concept will make your fundamental Strong'},
+                { title : 'Take Test','description' : 'Attending Test will make your understanding more clear...'}
+            ]
+        }
+    }
   render() {
     return (
-      <React.Fragment>
-        <Box className="box">
-          <div class="card">
-            <div class="card-body row">
-              <div className="col-md-11">
-                <h5 class="card-title">Understanding Concept</h5>
-                <p class="card-text">
-                  {" "}
-                  Understanding Concept will make your fundamental Strong
-                </p>
-              </div>
-              <div className="col-md-1 contentArrow">
-                <i className="fa fa-angle-double-right" />
-              </div>
-            </div>
-          </div>
-        </Box>
-        <Box>
-          <div class="card">
-            <div class="card-body row">
-              <div className="col-md-11">
-                <h5 class="card-title">Take Test</h5>
-                <p class="card-text">
-                  Attending Test will make your understanding more clear...
-                </p>
-              </div>
-              <div className="col-md-1 contentArrow">
-                <i className="fa fa-angle-double-right " />
-              </div>
-            </div>
-          </div>
-        </Box>
-        <Box>
-          <div class="card">
-            <div class="card-body row">
-              <div className="col-md-11">
-                <h5 class="card-title">Nacho</h5>
-                <p class="card-text">Nacho nacho</p>
-              </div>
-              <div className="col-md-1 contentArrow">
-                <i className="fa fa-angle-double-right" />
-              </div>
-            </div>
-          </div>
-        </Box>
-      </React.Fragment>
+            <React.Fragment>
+                <div >
+                <button className='btn btn-primary '><Link to='/topic'><span className='styleBackBtn'>Back</span></Link></button>
+                </div>
+                <ul>
+                {this.state.contents.map(content=>
+                    <Box className="box">
+                        <Link to='/flashy'>
+                            <li className="list-group-item d-flex justify-content-between align-items-center subject-list">
+                                    <h5>{content.title}</h5>
+                                    <br/>
+                                    <div className='row'>
+                                        {content.description}
+                                    </div>
+                                <span className="badge  badge-pill">
+                                    <i className="fa fa-angle-double-right moveToNext" />
+                                </span>
+                            </li>
+                        </Link>
+                    </Box>
+                )}
+                </ul>
+            
+                </React.Fragment>
+        
     );
   }
 }

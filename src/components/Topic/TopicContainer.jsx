@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Topic from "./Topic";
-
+import {Link} from 'react-router-dom';
 class TopicContainer extends Component {
   state = {
     topics: [
@@ -33,6 +33,9 @@ class TopicContainer extends Component {
   render() {
     return (
       <>
+        <div >
+            <button className='btn btn-primary '><Link to='/subject'><span className='styleBackBtn'>Back</span></Link></button>
+        </div>
         <ul className="list-group">
           {this.state.topics.map((topic, index) => (
             <>

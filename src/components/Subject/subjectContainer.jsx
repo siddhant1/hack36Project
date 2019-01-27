@@ -3,7 +3,7 @@ import Subject from "./subject";
 import posed from "react-pose";
 import "./subject.css";
 import ButtonGroup from "antd/lib/button/button-group";
-
+import {Link} from 'react-router-dom';
 var msg = new SpeechSynthesisUtterance();
 class SubjectContainer extends Component {
   constructor(props) {
@@ -48,6 +48,9 @@ class SubjectContainer extends Component {
         />
         <audio controls autoPlay src="http://localhost:9999/voice/majak" /> */}
         <div>
+            <div >
+              <button className='btn btn-primary '><Link to='/'><span className='styleBackBtn'>Back</span></Link></button>
+            </div>
           <ul className="list-group">
             {this.state.subject.map((subject, index) => {
               return <Subject subject={subject} key={index} className="box" />;

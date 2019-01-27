@@ -4,3 +4,12 @@
 .subject-list{
     font-weight: bolder;
 }
+.subject-list:hover .moveToNext{
+    color: blue;
+    font-size: 200%!important;
+}
+a{
+    text-decoration: none!important;
+    display: block!important;
+    color: black!important;
+}

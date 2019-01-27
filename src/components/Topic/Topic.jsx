@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import posed from 'react-pose';
 import './topic.css';
+import {Link} from 'react-router-dom';
 
 const Box=posed.div({
   hoverable: true,
@@ -29,16 +30,17 @@ class Topic extends Component {
 
   render() {
     return (
-      
+      <React.Fragment>
       <Box className='box'>
-        <li className="list-group-item d-flex justify-content-between align-items-center">
+        <Link to='/content'><li className="list-group-item d-flex justify-content-between align-items-center">
           {this.props.topic.name}
           <span className="badge badge-primary badge-pill">
             {this.props.topic.questions}
           </span>
         </li>
+        </Link>
         </Box>
-      
+        </React.Fragment>
     );
   }
 }

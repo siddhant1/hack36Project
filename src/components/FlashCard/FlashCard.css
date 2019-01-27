@@ -1,5 +1,3 @@
-
-
 html, body {
   background:  #F1F1F1;
   font-family: roboto;
@@ -28,13 +26,16 @@ html, body {
 .priorityButton{
     margin: 0% 1%!important;
 }
+.styleBackBtn{
+    color: white!important;
+}
 .wrapper {
   width: 100%;
-  height: 100vh;
+  /* height: 150%!important; */
 }
 .content-wrapper {
   display: flex;
-  /* height: 93vh; */
+  /* height: ; */
   justify-content: center;
   align-items: center;
   /* background:  #F1F1F1; */

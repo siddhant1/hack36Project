@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Stream.css';
 import Dictaphone from '../VoiceRecognize/VoiceRecognize';
+import { Link} from 'react-router-dom';
 
 class Stream extends Component {
     constructor(props){
@@ -46,7 +47,7 @@ class Stream extends Component {
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Are you Blind?</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                                 </button>
@@ -81,7 +82,7 @@ class Stream extends Component {
                         </select>
                         <br/>
                         <br/>
-                        <center><button className='btn btn-primary'>Procced</button></center>
+                        <center><Link to='/subject'><button className='btn btn-primary'>Procced</button></Link></center>
                     </div>  
                 </div>
             </div>
