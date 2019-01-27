@@ -79,7 +79,21 @@ class CreateCard extends React.Component {
         showAnswer: false
       }
     }
-   
+  
+    speak = text => {
+        const ut = new SpeechSynthesisUtterance(text);
+        ut.rate = 0.5;
+        console.log('thisT ')
+        speechSynthesis.speak(ut)
+    }
+
+    speakO = text =>{
+        const ut = new SpeechSynthesisUtterance(text);
+        ut.rate = 1.0;
+        console.log('thisT ')
+        speechSynthesis.speak(ut)
+    }
+
     render() {
       const content = this.state.showAnswer ? this.props.backContent : this.props.frontContent;
       const Option = this.state.showAnswer ? "" : this.props.frontContentOption;
@@ -105,8 +119,10 @@ class CreateCard extends React.Component {
           </div>
           <div className={`card__content--${contentClass}`}>
             {content}
+          {this.speak(content)}
             {<ul>
             {Option && Option.map((option,index)=>{
+                this.speakO(`Option${index+1}${option}`)
                 return <li>{index+1+"."} {option}</li> 
             })}
             </ul>}
@@ -146,6 +162,7 @@ class CreateCard extends React.Component {
         cards: [{
             "id": '1',
             "question" :"There are three Laws of Thermodynamics. Which of the following is NOT one of these laws?",
+            "speak":1,
             "options":[
             "conservation of energy",
             "direction of conservation",
@@ -156,6 +173,7 @@ class CreateCard extends React.Component {
         }, {
             "id" : '2',
             "question":"What type of chemical reaction absorbs energy and requires energy for the reaction to occur?",
+            "speak":1,
             "options":[
                "endothermic",
                "exothermic",
@@ -166,6 +184,7 @@ class CreateCard extends React.Component {
         }, {
             "id":'3',
             "question":"What type of reaction releases energy and does not require initial energy to occur?",
+            "speak":1,
             "options":[
                "endothermic",
                "exothermic",
@@ -176,6 +195,7 @@ class CreateCard extends React.Component {
         },
         {   "id":'4',
         "question":"Which type of reactions are characteristic of negative heat flow?",
+        "speak":1,
         "options":[
            "endothermic",
            "exothermic",
@@ -186,6 +206,7 @@ class CreateCard extends React.Component {
           }, {
               "id" : '5',
               "question":"Which type of reactions cannot occur spontaneously?",
+              "speak":1,
               "options":[
                  "endothermic",
                  "exothermic",
@@ -196,6 +217,7 @@ class CreateCard extends React.Component {
           }, {
               "id" : '6',
               "question":"Any type of reaction that invovles burning  can be classified as which of the following types of reactions?",
+              "speak":1,
               "options":[
                  "endothermic",
                  "exothermic",
@@ -206,6 +228,7 @@ class CreateCard extends React.Component {
           }, {
               "id" :'7',
               "question":"What is enthalpy?",
+              "speak":1,
               "options":[
                 "heat content",
              "absolute amount of energy is a chemical system",
@@ -421,7 +444,7 @@ class CreateCard extends React.Component {
                 </div> */}
             </div>
           <div className='content-wrapper'>
-            <CardContainer/>
+            <CardContainer/>    
           </div>
         </div>
       );

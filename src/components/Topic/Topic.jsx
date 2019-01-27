@@ -31,7 +31,7 @@ class Topic extends Component {
   render() {
     return (
       <React.Fragment>
-      <Box className='box'>
+      {/* <Box className=''> */}
         <Link to='/content'><li className="list-group-item d-flex justify-content-between align-items-center">
           {this.props.topic.name}
           <span className="badge badge-primary badge-pill">
@@ -39,7 +39,7 @@ class Topic extends Component {
           </span>
         </li>
         </Link>
-        </Box>
+        {/* </Box> */}
         </React.Fragment>
     );
   }

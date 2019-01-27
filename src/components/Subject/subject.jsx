@@ -21,8 +21,8 @@ const Box = posed.div({
 class Subject extends Component {
   render() {
     return (
-    //   <div>
-        <Box className="box">
+      <div>
+        {/* // <Box className="box"> */}
         <Link to='/topic'>
           <li className="list-group-item d-flex justify-content-between align-items-center subject-list">
             {this.props.subject}
@@ -32,8 +32,8 @@ class Subject extends Component {
             
           </li>
           </Link>
-        </Box>
-    //   </div>
+    </div>
+       
     );
   }
 }

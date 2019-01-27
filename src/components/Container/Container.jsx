@@ -23,7 +23,8 @@ class Container extends Component {
     this.msg.rate = 0.5;
     this.msg.voice = speechSynthesis.getVoices()[0];
     this.state={
-      isMain : false
+      isMain : false,
+      isBlind : false
     }
   }
   componentDidMount(){
@@ -34,7 +35,7 @@ class Container extends Component {
   render() {
     return (
       <div>
-          {!this.state.isMain ? <Welcome/> : <React.Fragment><Header/>
+          <React.Fragment><Header/>
           <div className="mainContent container">
             <Switch >
                 <Route path='/' exact component={Stream}/>
@@ -44,7 +45,7 @@ class Container extends Component {
                 <Route path='/flashy' exact component={FlashCard}/>
             </Switch>
           </div>
-          </React.Fragment>}
+          </React.Fragment>
       </div>
     );
   }
