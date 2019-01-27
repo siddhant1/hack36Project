@@ -8,8 +8,8 @@ class CreateCard extends React.Component {
     constructor() {
       super();
       this.state = {
-        word: '',
-        description: '',
+        question: '',
+        option: '',
         showError: false
       }
     } 
@@ -82,6 +82,7 @@ class CreateCard extends React.Component {
    
     render() {
       const content = this.state.showAnswer ? this.props.backContent : this.props.frontContent;
+      const Option = this.state.showAnswer ? "" : this.props.frontContentOption;
       const iconClass = this.state.showAnswer ? 'reply' : 'share';
       const cardClass = this.state.showAnswer ? 'back' : '';
       const contentClass = this.state.showAnswer ? 'back' : 'front';
@@ -104,6 +105,11 @@ class CreateCard extends React.Component {
           </div>
           <div className={`card__content--${contentClass}`}>
             {content}
+            {<ul>
+            {Option && Option.map((option,index)=>{
+                return <li>{index+1+"."} {option}</li> 
+            })}
+            </ul>}
           </div>
           <div className={`card__actions ${actionClass}`}>
             <div 
@@ -138,40 +144,75 @@ class CreateCard extends React.Component {
       this.hardLevelRepeat=1;
       this.state = {
         cards: [{
-            id: '1',
-          word: 'Jazz1',
-          description: 'A type of music of black American origin characterized by improvisation, syncopation, and usually a regular or forceful rhythm, emerging at the beginning of the 20th century.',
-          priority : 0
+            "id": '1',
+            "question" :"There are three Laws of Thermodynamics. Which of the following is NOT one of these laws?",
+            "options":[
+            "conservation of energy",
+            "direction of conservation",
+            "reaching Absolute Zero",
+            "none of the above"],
+            "answer":"direction of conservation",
+          "priority" : 0
         }, {
-            id : '2',
-          word: 'Reggae2',
-          description: 'Music like Bob Marley, man.',
-          priority : 0
+            "id" : '2',
+            "question":"What type of chemical reaction absorbs energy and requires energy for the reaction to occur?",
+            "options":[
+               "endothermic",
+               "exothermic",
+              "synthesis",
+             "both A and B"],
+            answer:"endothermic",
+          "priority" : 0
         }, {
-            id:'3',
-          word: 'Folk3',
-          description: 'Music like Bob Dylan, man.',
-          priority : 0
+            "id":'3',
+            "question":"What type of reaction releases energy and does not require initial energy to occur?",
+            "options":[
+               "endothermic",
+               "exothermic",
+              "decomposition",
+             "both A and B"],
+            "answer":"exothermic",
+          "priority" : 0
         },
-        {   id:'4',
-            word: 'Reggae4',
-            description: 'Music like Bob Marley, man.',
-            priority : 0
+        {   "id":'4',
+        "question":"Which type of reactions are characteristic of negative heat flow?",
+        "options":[
+           "endothermic",
+           "exothermic",
+          "decomposition",
+         "neither"],
+        answer:"endothermic",
+            "priority" : 0
           }, {
-              id : '5',
-            word: 'Folk5',
-            description: 'Music like Bob Dylan, man.',
-            priority : 0
+              "id" : '5',
+              "question":"Which type of reactions cannot occur spontaneously?",
+              "options":[
+                 "endothermic",
+                 "exothermic",
+                "synthesis",
+               "neither"],
+              "answer":"exothermic",
+            "priority" : 0
           }, {
-              id : '6',
-            word: 'Reggae6',
-            description: 'Music like Bob Marley, man.',
-            priority : 0
+              "id" : '6',
+              "question":"Any type of reaction that invovles burning  can be classified as which of the following types of reactions?",
+              "options":[
+                 "endothermic",
+                 "exothermic",
+                "decomposition",
+               "neither"],
+              "answer":"exothermic",
+            "priority" : 0
           }, {
-              id :'7',
-            word: 'Folk7',
-            description: 'Music like Bob Dylan, man.',
-            priority : 0
+              "id" :'7',
+              "question":"What is enthalpy?",
+              "options":[
+                "heat content",
+             "absolute amount of energy is a chemical system",
+             "the reactants of the chemical reaction",
+             "none of the above"],
+              "answer":"absolute amount of energy is a chemical system",
+            "priority" : 0
           }
       ],
         cardNumber: 0
@@ -183,17 +224,18 @@ class CreateCard extends React.Component {
     }
     componentDidMount(){
         let size=this.state.cards.length;
-        var priorityList=JSON.parse(localStorage.getItem('priorityListArray'))
-        if(priorityList){
-            for(let key in priorityList){
-                let itemCards= this.state.cards;
-                itemCards[key].priority=priorityList[key];
-                this.setState({cards : itemCards},()=>{
-                    console.log('this.state ',this.state);
-                });
-            }
-            return;
-        }
+        // var priority=JSON.parse(localStorage.getItem('priorityListArray'));
+        // var priorityList=JSON.parse(priority);
+        // if(priorityList){
+        //     for(let key in priorityList){
+        //         let itemCards= this.state.cards;
+        //         itemCards[key].priority=priorityList[key];
+        //         this.setState({cards : itemCards},()=>{
+        //             console.log('this.state ',this.state);
+        //         });
+        //     }
+        //     return;
+        // }
         for(let i=0;i<size;i++){
             let itemCards= this.state.cards;
             itemCards[i].priority=size;
@@ -323,8 +365,9 @@ class CreateCard extends React.Component {
           return (
               <React.Fragment>
                     <center><Card 
-                    frontContent={card.word}
-                    backContent={card.description}
+                    frontContent={card.question}
+                    frontContentOption ={card.options}
+                    backContent={card.answer}
                     showNextCard={this.boundShowNextCard}
                     showPrevCard = {this.boundShowPrevCard}
                     cardNumber={this.state.cardNumber}
@@ -377,7 +420,7 @@ class CreateCard extends React.Component {
                     <button className='btn btn-success'>Refresh</button>
                 </div>
             </div>
-          <div className='content-wrapper col-md-12'>
+          <div className='content-wrapper'>
             <CardContainer/>
           </div>
           <Link to="/topic" >TOPIC</Link>
